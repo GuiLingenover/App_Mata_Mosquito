@@ -1,7 +1,8 @@
 var altura = 0
 var largura = 0
 var vidas = 1
-var tempo = 30
+var tempo = 0
+var pontos = 0
 
 var criaMosquitoTempo = 2000
 
@@ -34,11 +35,10 @@ function ajustaTamanhoPalcoJogo(){
 ajustaTamanhoPalcoJogo()
 
 var cronometro = setInterval(function(){
-	tempo -= 1
+	tempo += 1
 	if(tempo < 0){
 		clearInterval(cronometro)
 		clearInterval(criaMosquito)
-		window.location.href = 'vitoria.html'
 	}else{
 		document.getElementById('cronometro').innerHTML = tempo
 	}
@@ -66,8 +66,6 @@ function posicaoRandomica(){
 	posicaoX = posicaoX < 0 ? 0 : posicaoX
 	posicaoY = posicaoY < 0 ? 0 : posicaoY
 
-	console.log(posicaoX, posicaoY)
-
 	//criar o elemento html
 	var mosquito = document.createElement('img')
 	mosquito.src = 'imagens/mosquito.png'
@@ -78,6 +76,19 @@ function posicaoRandomica(){
 	mosquito.id = 'mosquito'
 	mosquito.onclick = function(){
 		this.remove()
+		if(nivel === 'denteDeLeite'){
+			pontos += 1
+		}else if(nivel === 'facil'){
+			pontos += 2
+		}else if(nivel === 'normal'){
+			pontos += 3
+		}else if(nivel === 'dificil'){
+			pontos += 4
+		}else if(nivel === 'chuckNorris'){
+			pontos += 5
+		}
+
+		document.getElementById('pontos').innerHTML = pontos
 	}
 
 	document.body.appendChild(mosquito)
