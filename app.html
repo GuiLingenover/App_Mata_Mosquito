@@ -15,14 +15,27 @@
 	<body onresize="ajustaTamanhoPalcoJogo()">
 
 		<div class="painel">
-			<div class="vidas">
-				<img id="v1" src="imagens/coracao_cheio.png">
-				<img id="v2" src="imagens/coracao_cheio.png">
-				<img id="v3" src="imagens/coracao_cheio.png">
-			</div>
+			<div class="caixa d-flex justify-content-around">
+				<div class="item">
+					<div class="cronometro">
+						<h4>Tempo Decorrido:<span id="cronometro"></span></h4>
+					</div>
+				</div>
 
-			<div class="cronometro">
-				Tempo Restante: <span id="cronometro"></span>
+				<div class="item">
+					<div class="vidas">
+						<h4>Vidas:</h4>
+						<img id="v1" src="imagens/coracao_cheio.png">
+						<img id="v2" src="imagens/coracao_cheio.png">
+						<img id="v3" src="imagens/coracao_cheio.png">
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="pontuacao">
+						<h4>Pontuação:<span id="pontos"></span></h4>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -33,6 +46,7 @@
 			var criaMosquito = setInterval(function(){
 				posicaoRandomica()
 			}, criaMosquitoTempo)
+
 		</script>
 
 	</body>
