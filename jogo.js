@@ -50,7 +50,7 @@ function posicaoRandomica(){
 	if(document.getElementById('mosquito')){
 		document.getElementById('mosquito').remove()
 
-		if(vidas >= 3){
+		if(vidas > 3){
 			window.location.href = 'fim_de_jogo.html'
 		}else{
 
